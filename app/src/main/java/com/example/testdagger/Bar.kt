@@ -9,8 +9,8 @@ class Bar(val eventBus: EventBus = EventBus.getDefault()) {
     object BarCmd
 
     @Subscribe
-    fun on(o: BarCmd) = Log.d("BarCmd", "Second method fired successfully")
+    fun onBarCmdLog(o: BarCmd) = Log.d("BarCmd", "Second method fired successfully")
 
     @Subscribe
-    fun on2(o: BarCmd) = EventBus.getDefault().post(UpdateText("\nSecond method fired!"))
+    fun onBarCmdUpdateText(o: BarCmd) = EventBus.getDefault().post(UpdateTextCmd("\nSecond method fired!"))
 }

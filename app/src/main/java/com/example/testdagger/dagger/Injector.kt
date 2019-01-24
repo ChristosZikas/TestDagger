@@ -13,7 +13,7 @@ class Injector {
     @Provides
     @Singleton
     fun providesSomeClass(): Foo {
-        return Foo("23")
+        return Foo("Foo constructor Injected!")
     }
 
     @Provides

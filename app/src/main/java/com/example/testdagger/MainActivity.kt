@@ -11,7 +11,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import javax.inject.Inject
 
-data class UpdateText(val addedText: String)
+data class UpdateTextCmd(val addedText: String)
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Subscribe
-    fun on(update: UpdateText) {
+    fun onUpdateText(update: UpdateTextCmd) {
         val currentText = mainTextView.text.toString()
         val newText = currentText + update.addedText
         mainTextView.text = newText

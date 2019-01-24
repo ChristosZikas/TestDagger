@@ -10,15 +10,15 @@ class Foo(private val fooString: String) {
     object FooCmd
 
     @Subscribe
-    fun on1(l: FooCmd) = Log.d("FooCmd", "First method fired successfully")
+    fun onFooCmdLog(l: FooCmd) = Log.d("FooCmd", "First method fired successfully ${classSome()}")
 
     @Subscribe
-    fun on2(l: FooCmd) = EventBus.getDefault().post(Bar.BarCmd)
+    fun onFooCmdPostBarCmd(l: FooCmd) = EventBus.getDefault().post(Bar.BarCmd)
 
     @Subscribe
-    fun on3(l: FooCmd) = EventBus.getDefault().post(UpdateText("\nFirst method fired!"))
+    fun onFooCmdUpdateText(l: FooCmd) = EventBus.getDefault().post(UpdateTextCmd("\nFirst method fired! ${classSome()}"))
 
-    fun classSome() = fooString
+    private fun classSome() = fooString
 
 
 }
