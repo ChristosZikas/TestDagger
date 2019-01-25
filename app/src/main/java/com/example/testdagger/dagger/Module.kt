@@ -2,32 +2,35 @@ package com.example.testdagger.dagger
 
 import com.example.testdagger.Foo
 import com.example.testdagger.Bar
+import com.example.testdagger.Contract
 import com.example.testdagger.utils.RegisterClasses
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class Injector {
+class Module {
 
     @Provides
     @Singleton
-    fun providesSomeClass(): Foo {
-        return Foo("Foo constructor Injected!")
-    }
+    fun providesFooClass(): Foo = Foo("\nInjected Foo constructor\n")
 
     @Provides
     @Singleton
-    fun providesSomeOtherClass(): Bar = Bar()
+    fun providesFoo(foo: Foo): Contract.Foo = foo
+
+    @Provides
+    @Singleton
+    fun providesBar(): Contract.Bar = Bar()
 
     @Provides
     @Singleton
     fun providesBusRegistration(
-        someClass: Foo,
-        bar: Bar
+        foo: Contract.Foo,
+        bar: Contract.Bar
     ): RegisterClasses = RegisterClasses(
         arrayListOf(
-            someClass, bar
+            foo, bar
         )
     )
 

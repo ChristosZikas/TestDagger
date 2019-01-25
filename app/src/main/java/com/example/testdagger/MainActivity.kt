@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         registerClasses.register()
-        bus.post(Foo.FooCmd)
+        bus.post(FooCmd)
     }
 
     override fun onPause() {
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     @Subscribe
     fun onUpdateText(update: UpdateTextCmd) {
         val currentText = mainTextView.text.toString()
-        val newText = currentText + update.addedText
+        val newText = currentText + "\n" + update.addedText
         mainTextView.text = newText
     }
 }
