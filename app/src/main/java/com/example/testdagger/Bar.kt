@@ -17,4 +17,5 @@ class Bar @Inject constructor(): Contract.Bar {
 
     @Subscribe
     override fun onBarCmdUpdateText(o: BarCmd) = EventBus.getDefault().post(UpdateTextCmd("\nSecond method fired!"))
+
 }

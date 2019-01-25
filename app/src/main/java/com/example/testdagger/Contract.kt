@@ -13,5 +13,4 @@ interface Contract {
         fun onBarCmdUpdateText(o: BarCmd)
     }
 
-
 }

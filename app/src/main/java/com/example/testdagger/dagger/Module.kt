@@ -34,10 +34,7 @@ class Module {
     @Singleton
     fun providesBar(): Contract.Bar = Bar()
 
-
     @Provides
     fun providesBusRegistration(injected: Injected): RegisterClasses = RegisterClasses(injected.arrayList)
-
-
 
 }
