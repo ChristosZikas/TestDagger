@@ -1,6 +1,5 @@
 package com.example.testdagger.core
 
-import android.util.Log
 import com.example.testdagger.core.contract.Contract
 import com.example.testdagger.ui.UpdateTextCmd
 import com.example.testdagger.utils.bus.BusRegister
@@ -13,26 +12,19 @@ object FooCmd
 data class FooStickyEvent(val fooString: String)
 
 @BusRegister
-class Foo @Inject constructor(private val fooString: String) : Contract.Foo {
-
-    val bus = EventBus.getDefault()
-
-    @Subscribe
-    override fun onFooCmdLog(l: FooCmd) {
-        Log.d("FooCmd", "First method fired successfully ${classSome()}")
-    }
+open class Foo @Inject constructor(private val fooString: String, val bus: EventBus) : Contract.Foo {
 
     @Subscribe
     override fun onFooCmdPostBarCmd(l: FooCmd) = bus.post(BarCmd)
 
     @Subscribe
     override fun onFooCmdUpdateText(l: FooCmd) =
-        EventBus.getDefault().post(
-            UpdateTextCmd(
-                "\nFirst method fired! ${classSome()} " +
-                        "\nsticky: ${getStickyString()}"
-            )
+      bus.post(
+            UpdateTextCmd(retrieveText())
         )
+
+    override fun retrieveText() = "\nFirst method fired! ${classSome()} " +
+            "\nsticky: ${getStickyString()}"
 
     private fun getStickyString(): String {
         val fooStickyString = bus.getStickyEvent(FooStickyEvent::class.java)

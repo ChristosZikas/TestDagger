@@ -6,6 +6,7 @@ import com.example.testdagger.core.contract.Contract
 import com.example.testdagger.utils.bus.RegisterClasses
 import dagger.Module
 import dagger.Provides
+import org.greenrobot.eventbus.EventBus
 import javax.inject.Singleton
 
 @Module
@@ -25,7 +26,7 @@ class Module {
     @Provides
     @Singleton
     fun providesFooClass(): Foo =
-        Foo("\nInjected Foo constructor\n")
+        Foo("\nInjected Foo constructor\n", EventBus.getDefault())
 
     @Provides
     @Singleton
@@ -33,7 +34,7 @@ class Module {
 
     @Provides
     @Singleton
-    fun providesBar(): Contract.Bar = Bar()
+    fun providesBar(): Contract.Bar = Bar(EventBus.getDefault())
 
     @Provides
     fun providesBusRegistration(injected: Injected): RegisterClasses =
