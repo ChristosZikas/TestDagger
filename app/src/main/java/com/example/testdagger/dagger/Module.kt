@@ -11,6 +11,17 @@ import javax.inject.Singleton
 @Module
 class Module {
 
+    data class Injected(val arrayList: ArrayList<Any>)
+
+    @Provides
+    fun getInjected(
+        foo: Contract.Foo,
+        bar: Contract.Bar
+    ) = Injected(arrayListOf(
+        foo,
+        bar
+        ))
+
     @Provides
     @Singleton
     fun providesFooClass(): Foo = Foo("\nInjected Foo constructor\n")
@@ -23,16 +34,10 @@ class Module {
     @Singleton
     fun providesBar(): Contract.Bar = Bar()
 
+
     @Provides
-    @Singleton
-    fun providesBusRegistration(
-        foo: Contract.Foo,
-        bar: Contract.Bar
-    ): RegisterClasses = RegisterClasses(
-        arrayListOf(
-            foo, bar
-        )
-    )
+    fun providesBusRegistration(injected: Injected): RegisterClasses = RegisterClasses(injected.arrayList)
+
 
 
 }
