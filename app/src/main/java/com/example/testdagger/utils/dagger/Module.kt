@@ -1,9 +1,9 @@
 package com.example.testdagger.utils.dagger
 
-import com.example.testdagger.Foo
-import com.example.testdagger.utils.bus.Bar
-import com.example.testdagger.Contract
-import com.example.testdagger.utils.RegisterClasses
+import com.example.testdagger.core.Foo
+import com.example.testdagger.core.Bar
+import com.example.testdagger.core.contract.Contract
+import com.example.testdagger.utils.bus.RegisterClasses
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -24,7 +24,8 @@ class Module {
 
     @Provides
     @Singleton
-    fun providesFooClass(): Foo = Foo("\nInjected Foo constructor\n")
+    fun providesFooClass(): Foo =
+        Foo("\nInjected Foo constructor\n")
 
     @Provides
     @Singleton
@@ -35,6 +36,7 @@ class Module {
     fun providesBar(): Contract.Bar = Bar()
 
     @Provides
-    fun providesBusRegistration(injected: Injected): RegisterClasses = RegisterClasses(injected.arrayList)
+    fun providesBusRegistration(injected: Injected): RegisterClasses =
+        RegisterClasses(injected.arrayList)
 
 }

@@ -1,8 +1,8 @@
-package com.example.testdagger
+package com.example.testdagger.core
 
 import android.util.Log
+import com.example.testdagger.core.contract.Contract
 import com.example.testdagger.ui.UpdateTextCmd
-import com.example.testdagger.utils.bus.BarCmd
 import com.example.testdagger.utils.bus.BusRegister
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe

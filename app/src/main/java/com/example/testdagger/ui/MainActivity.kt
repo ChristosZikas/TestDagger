@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.example.testdagger.FooCmd
-import com.example.testdagger.FooStickyEvent
+import com.example.testdagger.core.FooCmd
+import com.example.testdagger.core.FooStickyEvent
 import com.example.testdagger.R
 import com.example.testdagger.utils.dagger.AppInit
-import com.example.testdagger.utils.RegisterClasses
+import com.example.testdagger.utils.bus.RegisterClasses
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import javax.inject.Inject

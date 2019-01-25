@@ -1,6 +1,7 @@
-package com.example.testdagger
+package com.example.testdagger.core.contract
 
-import com.example.testdagger.utils.bus.BarCmd
+import com.example.testdagger.core.BarCmd
+import com.example.testdagger.core.FooCmd
 
 interface Contract {
 
