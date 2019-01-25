@@ -1,11 +1,14 @@
-package com.example.testdagger
+package com.example.testdagger.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.example.testdagger.dagger.AppInit
+import com.example.testdagger.FooCmd
+import com.example.testdagger.FooStickyEvent
+import com.example.testdagger.R
+import com.example.testdagger.utils.dagger.AppInit
 import com.example.testdagger.utils.RegisterClasses
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe

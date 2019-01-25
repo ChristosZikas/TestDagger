@@ -1,6 +1,6 @@
 package com.example.testdagger.utils
 
-import com.example.testdagger.BusRegister
+import com.example.testdagger.utils.bus.BusRegister
 import org.greenrobot.eventbus.EventBus
 import kotlin.reflect.full.findAnnotation
 

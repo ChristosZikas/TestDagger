@@ -1,5 +1,7 @@
 package com.example.testdagger
 
+import com.example.testdagger.utils.bus.BarCmd
+
 interface Contract {
 
     interface Foo {

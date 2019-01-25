@@ -1,6 +1,9 @@
 package com.example.testdagger
 
 import android.util.Log
+import com.example.testdagger.ui.UpdateTextCmd
+import com.example.testdagger.utils.bus.BarCmd
+import com.example.testdagger.utils.bus.BusRegister
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import javax.inject.Inject
@@ -24,8 +27,12 @@ class Foo @Inject constructor(private val fooString: String) : Contract.Foo {
 
     @Subscribe
     override fun onFooCmdUpdateText(l: FooCmd) =
-        EventBus.getDefault().post(UpdateTextCmd("\nFirst method fired! ${classSome()} " +
-                "\nsticky: ${getStickyString()}"))
+        EventBus.getDefault().post(
+            UpdateTextCmd(
+                "\nFirst method fired! ${classSome()} " +
+                        "\nsticky: ${getStickyString()}"
+            )
+        )
 
     private fun getStickyString(): String {
         val fooStickyString = bus.getStickyEvent(FooStickyEvent::class.java)

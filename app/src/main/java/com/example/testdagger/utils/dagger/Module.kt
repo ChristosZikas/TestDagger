@@ -1,7 +1,7 @@
-package com.example.testdagger.dagger
+package com.example.testdagger.utils.dagger
 
 import com.example.testdagger.Foo
-import com.example.testdagger.Bar
+import com.example.testdagger.utils.bus.Bar
 import com.example.testdagger.Contract
 import com.example.testdagger.utils.RegisterClasses
 import dagger.Module

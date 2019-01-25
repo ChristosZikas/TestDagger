@@ -1,7 +1,6 @@
-package com.example.testdagger.dagger
+package com.example.testdagger.utils.dagger
 
 import android.app.Application
-import android.util.Log
 
 class AppInit : Application() {
 
