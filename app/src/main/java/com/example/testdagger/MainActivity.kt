@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         registerClasses.register()
+        bus.postSticky(FooStickyEvent("Sticky Foo Event!"))
         bus.post(FooCmd)
     }
 
